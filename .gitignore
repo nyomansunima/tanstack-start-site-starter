@@ -12,4 +12,3 @@ count.txt
 todos.json
 .vscode
 .zed
-*.gen.ts
