@@ -10,6 +10,9 @@ const config = defineConfig({
     tailwindcss(),
     tanstackStart({
       customViteReactPlugin: true,
+      tsr: {
+        srcDirectory: "src/app",
+      },
     }),
     viteReact(),
   ],
