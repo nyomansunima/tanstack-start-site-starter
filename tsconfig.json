@@ -31,7 +31,7 @@
     "paths": {
       "@features/*": ["./src/features/*"],
       "@shared/*": ["./src/shared/*"],
-      "@routes/*": ["./src/routes/*"],
+      "@app/*": ["./src/app/*"],
       "~/*": ["./src/*"]
     }
   }
