@@ -6,10 +6,11 @@
     "dev": "vite dev",
     "build": "vite build",
     "start": "node .output/server/index.mjs",
-    "test": "vitest",
     "typecheck": "tsc",
+    "format": "prettier . --write --list-different",
     "lint": "eslint . --fix",
-    "format": "prettier . --write --list-different"
+    "test": "vitest",
+    "clean": "rm -rf .tanstack .nitro .output"
   },
   "dependencies": {
     "@tanstack/react-router": "^1.131.35",
@@ -24,7 +25,7 @@
     "@eslint-react/eslint-plugin": "^1.53.0",
     "@tailwindcss/vite": "^4.1.13",
     "@tanstack/eslint-config": "^0.3.1",
-    "@tanstack/react-devtools": "^0.6.3",
+    "@tanstack/react-devtools": "^0.6.4",
     "@tanstack/react-router-devtools": "^1.131.35",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/react": "^16.3.0",
