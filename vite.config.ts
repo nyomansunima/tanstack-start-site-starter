@@ -9,9 +9,20 @@ const config = defineConfig({
     viteTsConfigPaths(),
     tailwindcss(),
     tanstackStart({
+      // target: "vercel",
       customViteReactPlugin: true,
       tsr: {
         srcDirectory: "src/app",
+      },
+      prerender: {
+        enabled: true,
+        autoSubfolderIndex: true,
+        concurrency: 14,
+        retryCount: 3,
+      },
+      sitemap: {
+        enabled: true,
+        host: "https://yoursite.com",
       },
     }),
     viteReact(),
