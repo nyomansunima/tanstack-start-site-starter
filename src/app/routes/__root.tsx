@@ -1,36 +1,26 @@
-import { HeadContent, Scripts, createRootRoute } from "@tanstack/react-router"
-import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools"
-import { TanStackDevtools } from "@tanstack/react-devtools"
+import {
+  HeadContent,
+  Scripts,
+  createRootRouteWithContext,
+} from "@tanstack/react-router"
 import styles from "@shared/styles/globals.css?url"
+import * as React from "react"
 
-function RootDocument({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-
-        {/* Devtools config */}
-        <TanStackDevtools
-          config={{
-            position: "bottom-left",
-          }}
-          plugins={[
-            {
-              name: "Tanstack Router",
-              render: <TanStackRouterDevtoolsPanel />,
-            },
-          ]}
-        />
-        <Scripts />
-      </body>
-    </html>
-  )
+interface RootComponentProps {
+  children: React.ReactNode
 }
 
-export const Route = createRootRoute({
+interface RootWithContextProps {
+  // TODO: Define your context props here
+  // you can add several integration into the context router
+  // will be visible to the router file
+  //
+  // example:
+  // queryClient: QueryClient
+  // etc.
+}
+
+export const Route = createRootRouteWithContext<RootWithContextProps>()({
   head: () => ({
     meta: [
       {
@@ -48,5 +38,19 @@ export const Route = createRootRoute({
       },
     ],
   }),
-  shellComponent: RootDocument,
+  shellComponent: RootComponent,
 })
+
+function RootComponent({ children }: RootComponentProps) {
+  return (
+    <html lang="en">
+      <head>
+        <HeadContent />
+      </head>
+      <body>
+        {children}
+        <Scripts />
+      </body>
+    </html>
+  )
+}
