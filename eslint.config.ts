@@ -1,18 +1,10 @@
-import {
-  combine,
-  ignores,
-  imports,
-  javascript,
-  node,
-  react,
-  typescript,
-} from "@antfu/eslint-config"
+import config from "@antfu/eslint-config"
 
-export default combine(
-  ignores([".nitro/**", ".output/**", ".tanstack/**", "**/*.gen.ts"]),
-  javascript(),
-  node(),
-  imports(),
-  typescript(),
-  react(),
-)
+export default config({
+  stylistic: false,
+  typescript: {
+    overrides: {
+      "eslint-comments/no-unlimited-disable": "off",
+    },
+  },
+})
