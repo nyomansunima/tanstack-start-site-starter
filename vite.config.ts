@@ -1,21 +1,21 @@
-import { defineConfig } from "vite"
-import { tanstackStart } from "@tanstack/react-start/plugin/vite"
-import viteReact from "@vitejs/plugin-react"
-import viteTsConfigPaths from "vite-tsconfig-paths"
 import tailwindcss from "@tailwindcss/vite"
+import { tanstackStart } from "@tanstack/react-start/plugin/vite"
+import react from "@vitejs/plugin-react"
+import { defineConfig } from "vite"
+import tsconfigPaths from "vite-tsconfig-paths"
 
-const config = defineConfig({
+export default defineConfig({
+  server: {
+    port: 3000,
+  },
   plugins: [
-    viteTsConfigPaths(),
+    tsconfigPaths(),
     tailwindcss(),
     tanstackStart({
-      // target: "vercel",
-      customViteReactPlugin: true,
-      tsr: {
-        srcDirectory: "src/app",
-      },
+      srcDirectory: "src/app",
       prerender: {
         enabled: true,
+        crawlLinks: true,
         autoSubfolderIndex: true,
         concurrency: 14,
         retryCount: 3,
@@ -25,8 +25,6 @@ const config = defineConfig({
         host: "https://yoursite.com",
       },
     }),
-    viteReact(),
+    react(),
   ],
 })
-
-export default config

@@ -1,9 +1,9 @@
+import styles from "@shared/styles/globals.css?url"
 import {
+  createRootRouteWithContext,
   HeadContent,
   Scripts,
-  createRootRouteWithContext,
 } from "@tanstack/react-router"
-import styles from "@shared/styles/globals.css?url"
 import * as React from "react"
 
 interface RootComponentProps {
