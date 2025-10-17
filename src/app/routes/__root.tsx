@@ -1,16 +1,17 @@
-import styles from "@shared/styles/globals.css?url"
+import styles from "@shared/styles/globals.css?url";
 import {
   createRootRouteWithContext,
   HeadContent,
   Scripts,
-} from "@tanstack/react-router"
-import * as React from "react"
+} from "@tanstack/react-router";
+import type * as React from "react";
 
-interface RootComponentProps {
-  children: React.ReactNode
-}
+type RootComponentProps = {
+  children: React.ReactNode;
+};
 
-interface RootWithContextProps {
+// biome-ignore lint/complexity/noBannedTypes: just for example
+type RootWithContextProps = {
   // TODO: Define your context props here
   // you can add several integration into the context router
   // will be visible to the router file
@@ -18,7 +19,7 @@ interface RootWithContextProps {
   // example:
   // queryClient: QueryClient
   // etc.
-}
+};
 
 export const Route = createRootRouteWithContext<RootWithContextProps>()({
   head: () => ({
@@ -39,7 +40,7 @@ export const Route = createRootRouteWithContext<RootWithContextProps>()({
     ],
   }),
   shellComponent: RootComponent,
-})
+});
 
 function RootComponent({ children }: RootComponentProps) {
   return (
@@ -52,5 +53,5 @@ function RootComponent({ children }: RootComponentProps) {
         <Scripts />
       </body>
     </html>
-  )
+  );
 }

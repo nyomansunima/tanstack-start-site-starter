@@ -4,5 +4,5 @@ export function loadEnv() {
     clerk: {},
     convex: {},
     verification: {},
-  }
+  };
 }

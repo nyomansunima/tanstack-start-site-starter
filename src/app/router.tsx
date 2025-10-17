@@ -1,5 +1,5 @@
-import { createRouter } from "@tanstack/react-router"
-import { routeTree } from "./routeTree.gen"
+import { createRouter } from "@tanstack/react-router";
+import { routeTree } from "./routeTree.gen";
 
 export function getRouter() {
   // TODO: Define your all integrations code
@@ -11,7 +11,7 @@ export function getRouter() {
     routeTree,
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
-  })
+  });
 
-  return router
+  return router;
 }

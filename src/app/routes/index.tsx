@@ -1,5 +1,5 @@
-import { generateMetaTags } from "@shared/libs/shared-metadata"
-import { createFileRoute } from "@tanstack/react-router"
+import { generateMetaTags } from "@shared/libs/shared-metadata";
+import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -9,8 +9,8 @@ export const Route = createFileRoute("/")({
     }),
   }),
   component: PageComponent,
-})
+});
 
 function PageComponent() {
-  return <div className="text-center"></div>
+  return <div className="text-center" />;
 }
